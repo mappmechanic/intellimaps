@@ -1,7 +1,9 @@
 angular.module('intellimap')
 
-.controller('MapCtrl',['$scope','$ionicPlatform','$cordovaGeolocation',function($scope,$ionicPlatform,$cordovaGeolocation) {
+.controller('MapCtrl',['$scope','$ionicPlatform','$cordovaGeolocation','DataCollectionService',
+function($scope,$ionicPlatform,$cordovaGeolocation,DataCollectionService) {
 	$ionicPlatform.ready(function(){
+	DataCollectionService.initCollection();
 	var options = {timeout: 10000, enableHighAccuracy: true, maxAge: 0};
     var geoLocationWatch;
 	$scope.path = [];
